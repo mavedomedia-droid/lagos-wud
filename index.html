@@ -205,6 +205,128 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     text-transform: uppercase;
   }
 
+  /* MADE FOR */
+  .made-for {
+    background-color: #2E2118;
+    background-image: url('/images/wooden-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--bg);
+    padding: 120px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .made-for::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,22,20,0.6), rgba(26,22,20,0.78));
+    z-index: 0;
+  }
+  .made-for-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .made-for-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(242, 236, 223, 0.55);
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .made-for-label::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: rgba(242, 236, 223, 0.4);
+  }
+  h2.made-for-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 6vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-variation-settings: "SOFT" 50, "opsz" 144;
+    margin-bottom: 40px;
+    color: var(--bg);
+  }
+  h2.made-for-headline em {
+    font-style: italic;
+    font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  }
+  .made-for-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(16px, 1.35vw, 20px);
+    line-height: 1.6;
+    color: rgba(242, 236, 223, 0.88);
+    max-width: 700px;
+  }
+
+  /* AUDIENCE CARDS */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-top: 56px;
+  }
+  .audience-card {
+    aspect-ratio: 3 / 4;
+    background-color: rgba(58, 42, 29, 0.5);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .audience-card:hover { transform: translateY(-4px); }
+  .audience-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,22,20,0.35) 0%, rgba(26,22,20,0.82) 100%);
+    z-index: 0;
+  }
+  .audience-card-index {
+    position: relative;
+    z-index: 1;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: rgba(242, 236, 223, 0.55);
+  }
+  .audience-card-content {
+    position: relative;
+    z-index: 1;
+  }
+  .audience-card-label {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.1;
+    color: var(--bg);
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
+    font-variation-settings: "SOFT" 50, "opsz" 40;
+  }
+  .audience-card-caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    color: rgba(242, 236, 223, 0.65);
+  }
+
   /* SECTION MARKER */
   .section-marker {
     display: flex;
@@ -894,6 +1016,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       padding: 40px;
     }
     .hero-image svg { width: 60%; max-width: 260px; }
+    .audience-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 12px;
+      padding-right: 24px;
+      scrollbar-width: none;
+    }
+    .audience-grid::-webkit-scrollbar { display: none; }
+    .audience-card {
+      flex: 0 0 200px;
+      scroll-snap-align: start;
+    }
     .product-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 24px; }
     .footer-inner { grid-template-columns: 1fr; gap: 32px; }
   }
@@ -916,6 +1052,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   @media (max-width: 600px) {
     .nav, .hero, .collection, .enquiry, footer { padding-left: 24px; padding-right: 24px; }
+    .made-for { padding: 72px 24px; }
+    .made-for-body { font-size: 16px; }
     .hero { padding-top: 40px; padding-bottom: 80px; }
     .product-grid { grid-template-columns: 1fr; gap: 40px; }
     .collection-head { flex-direction: column; gap: 8px; align-items: flex-start; }
@@ -939,9 +1077,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="hero">
     <div class="hero-content">
       <div class="hero-eyebrow">Made in Lagos</div>
-      <h1 class="hero-headline">Good times could use <em>better</em> pieces.</h1>
+      <h1 class="hero-headline">Make good times <em>even better</em>.</h1>
       <p class="hero-sub">
-        Wooden games, bar pieces and everyday objects. Made to bring more play, more interaction and a little more character to the table.
+        Custom handcrafted wooden pieces designed for optimal engagement of guests, friends, teammates.
       </p>
       <div class="hero-actions">
         <a href="#collection" class="hero-cta">See what we've made <span>↓</span></a>
@@ -950,6 +1088,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="hero-image" id="hero-image">
       <div class="hero-image-tag" id="hero-image-tag">Featured piece</div>
+    </div>
+  </section>
+
+  <section class="made-for">
+    <div class="made-for-inner">
+      <div class="made-for-label">Made for</div>
+      <h2 class="made-for-headline">Five places <em>you'll want</em> them.</h2>
+      <div class="audience-grid">
+
+        <div class="audience-card" style="background-image: url('/images/wooden-2.jpg');">
+          <div class="audience-card-index">01</div>
+          <div class="audience-card-content">
+            <h3 class="audience-card-label">Bars &amp; Lounges</h3>
+            <p class="audience-card-caption">Shot racks, ashtrays, conversation pieces.</p>
+          </div>
+        </div>
+
+        <div class="audience-card" style="background-image: url('/images/wooden-3.jpg');">
+          <div class="audience-card-index">02</div>
+          <div class="audience-card-content">
+            <h3 class="audience-card-label">Friends</h3>
+            <p class="audience-card-caption">Ludo, Whot, weekend rounds.</p>
+          </div>
+        </div>
+
+        <div class="audience-card" style="background-image: url('/images/wooden-4.jpg');">
+          <div class="audience-card-index">03</div>
+          <div class="audience-card-content">
+            <h3 class="audience-card-label">Teammates</h3>
+            <p class="audience-card-caption">Foldable tables, team pieces.</p>
+          </div>
+        </div>
+
+        <div class="audience-card" style="background-image: url('/images/wooden-5.jpg');">
+          <div class="audience-card-index">04</div>
+          <div class="audience-card-content">
+            <h3 class="audience-card-label">Living Rooms</h3>
+            <p class="audience-card-caption">Serving trays, everyday character.</p>
+          </div>
+        </div>
+
+        <div class="audience-card" style="background-image: url('/images/wooden-6.jpg');">
+          <div class="audience-card-index">05</div>
+          <div class="audience-card-content">
+            <h3 class="audience-card-label">A Collectible</h3>
+            <p class="audience-card-caption">Handcrafted. Engraved. Made to keep.</p>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
